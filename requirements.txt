@@ -1,1 +1,7 @@
-# Astro Runtime includes the following pre-installed providers packages: https://www.astronomer.io/docs/astro/runtime-image-architecture#provider-packages
+# Astronomer Astro Runtime Dependencies
+apache-airflow-providers-postgres>=5.10.0
+apache-airflow-providers-common-sql>=1.10.0
+pydantic>=2.5.0
+requests>=2.31.0
+pytest>=7.4.0
+pytest-airflow>=0.1.0

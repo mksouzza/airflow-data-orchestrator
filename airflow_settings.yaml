@@ -1,25 +1,26 @@
-# This file allows you to configure Airflow Connections, Pools, and Variables in a single place for local development only.
-# NOTE: json dicts can be added to the conn_extra field as yaml key value pairs. See the example below.
-
-# For more information, refer to our docs: https://www.astronomer.io/docs/astro/cli/develop-project#configure-airflow_settingsyaml-local-development-only
-# For questions, reach out to: https://support.astronomer.io
-# For issues create an issue ticket here: https://github.com/astronomer/astro-cli/issues
-
+# Airflow local development settings (Astronomer Astro CLI)
+# Automatically imported on 'astro dev start'
 airflow:
   connections:
-    - conn_id:
-      conn_type:
-      conn_host:
-      conn_schema:
-      conn_login:
-      conn_password:
-      conn_port:
+    - conn_id: postgres_warehouse
+      conn_type: postgres
+      conn_host: localhost
+      conn_schema: commodities_dw
+      conn_login: postgres
+      conn_password: postgres
+      conn_port: 5432
       conn_extra:
-        example_extra_field: example-value
-  pools:
-    - pool_name:
-      pool_slot:
-      pool_description:
+        sslmode: disable
+
   variables:
-    - variable_name:
-      variable_value:
+    - variable_name: COMMODITIES_TRACKED_SYMBOLS
+      variable_value: "CL=F,GC=F,SI=F"
+    - variable_name: PIPELINE_ALERT_EMAIL
+      variable_value: "mksouzza@gmail.com"
+    - variable_name: SLA_MAX_HOURS_STALENESS
+      variable_value: "24"
+
+  pools:
+    - pool_name: elt_ingestion_pool
+      pool_slot: 4
+      pool_description: "Worker slots reserved for high-frequency extraction and ingestion tasks"
