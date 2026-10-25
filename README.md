@@ -8,7 +8,7 @@
 
 An enterprise-grade workflow orchestration platform built with **Apache Airflow** and **Astronomer (Astro CLI)**. This repository serves as the central orchestration and scheduling hub for the **Modern Data Stack (MDS)**, automating end-to-end ELT pipelines, enforcing in-flight data quality validation, triggering downstream **dbt** transformations, and performing automated Data Warehouse SLA compliance audits.
 
-> **Companion Project:** This orchestrator actively manages and schedules the [Commodities Data Warehouse & Analytics Platform](https://github.com/mksouzza/open-dw-workshop), coordinating raw market ingestion, dbt staging, datamart builds, and data quality tests.
+> **Companion Project:** This orchestrator actively manages and schedules the [Commodities Data Warehouse & Analytics Platform](https://github.com/mksouzza/commodities-data-warehouse), coordinating raw market ingestion, dbt staging, datamart builds, and data quality tests.
 
 ---
 
@@ -65,7 +65,7 @@ flowchart TD
 ## Repository Structure
 
 ```plaintext
-modern-stack/
+airflow-data-orchestrator/
 ├── .astro/                         # Astro CLI runtime configuration
 │   └── test_dag_integrity_default.py  # Automated DAG structure tests
 ├── dags/                           # Airflow DAG definitions
@@ -101,8 +101,8 @@ curl -sSL install.astronomer.io | sudo bash -s
 
 ### 2. Clone & Setup
 ```bash
-git clone https://github.com/mksouzza/modern-stack.git
-cd modern-stack
+git clone https://github.com/mksouzza/airflow-data-orchestrator.git
+cd airflow-data-orchestrator
 ```
 
 ### 3. Start Local Airflow Environment
@@ -146,6 +146,6 @@ The orchestration workflows interact directly with PostgreSQL and dbt:
 
 This project is part of a comprehensive three-pillar Data Engineering portfolio:
 
-1. **[Airflow Data Pipeline Orchestrator](https://github.com/mksouzza/modern-stack)** (Current Project): Central workflow orchestration, TaskFlow API, failure alerts, SLA monitoring, and Astro CLI.
+1. **[Airflow Data Pipeline Orchestrator](https://github.com/mksouzza/airflow-data-orchestrator)** (Current Project): Central workflow orchestration, TaskFlow API, failure alerts, SLA monitoring, and Astro CLI.
 2. **[Real-Time Omnichannel Messaging Lakehouse](https://github.com/mksouzza/realtime-messaging-lakehouse)**: Real-time streaming, Medallion Lakehouse, PySpark, Delta Lake, and GCP Terraform.
-3. **[Commodities Data Warehouse & Analytics Platform](https://github.com/mksouzza/open-dw-workshop)**: Batch ELT, dimensional modeling, dbt-core, PostgreSQL, and Streamlit.
+3. **[Commodities Data Warehouse & Analytics Platform](https://github.com/mksouzza/commodities-data-warehouse)**: Batch ELT, dimensional modeling, dbt-core, PostgreSQL, and Streamlit.
