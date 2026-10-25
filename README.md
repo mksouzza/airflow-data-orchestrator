@@ -42,7 +42,7 @@ flowchart TD
 
 ---
 
-## Production Engineering Highlights
+## Engineering Highlights
 
 - **Modern TaskFlow API:** Workflows are defined using Airflow's Python decorators (`@dag`, `@task`), producing clean, declarative DAG definitions with automatic dependency inference and typed XCom parameter passing.
 - **Resilience & Retry Policies:** Every production task is hardened with automatic exponential retries (`retries=2`, `retry_delay=5m`) to safeguard against transient network dropouts or upstream rate limits.
@@ -138,3 +138,14 @@ The orchestration workflows interact directly with PostgreSQL and dbt:
 1. **Connection Management:** Configured via `airflow_settings.yaml` under `postgres_warehouse` to enable secure database access.
 2. **dbt Invocation:** Airflow delegates heavy-lifting transformations to **dbt-core**, executing `stg_commodities`, `stg_commodity_transactions`, and the `dm_commodities_daily` datamarts.
 3. **Audit Feedback Loop:** The `data_warehouse_audit` DAG inspects the tables materialized by dbt to verify that data is never stale by more than 24 hours.
+
+
+---
+
+## Data Engineering Portfolio Ecosystem
+
+This project is part of a comprehensive three-pillar Data Engineering portfolio:
+
+1. **[Airflow Data Pipeline Orchestrator](https://github.com/mksouzza/modern-stack)** (Current Project): Central workflow orchestration, TaskFlow API, failure alerts, SLA monitoring, and Astro CLI.
+2. **[Real-Time Omnichannel Messaging Lakehouse](https://github.com/mksouzza/realtime-messaging-lakehouse)**: Real-time streaming, Medallion Lakehouse, PySpark, Delta Lake, and GCP Terraform.
+3. **[Commodities Data Warehouse & Analytics Platform](https://github.com/mksouzza/open-dw-workshop)**: Batch ELT, dimensional modeling, dbt-core, PostgreSQL, and Streamlit.
